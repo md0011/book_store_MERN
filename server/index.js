@@ -1,6 +1,7 @@
 import express from 'express';
 import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
+const bodyParser = require("body-parser");
 import booksRoute from './routes/booksRoute.js';
 import cors from 'cors';
 
@@ -8,7 +9,8 @@ const app = express();
 
 // MIDDLEWARES
 // for Parsing Request Body with JSON
-app.use(express.json());
+app.use(bodyParser.json());
+
 // for Handling CORS Policy
 app.use(cors());
 app.use(
