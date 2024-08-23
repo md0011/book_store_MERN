@@ -22,7 +22,7 @@ app.use(
 );
 
 app.get('/', (req, res) => {
-  return res.status(200).send('Welcome to Book Store');
+  res.send('Welcome to Book Store');
 });
 
 app.use('/books', booksRoute);
