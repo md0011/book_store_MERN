@@ -1,7 +1,7 @@
 import express from 'express';
 import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
-const bodyParser = require("body-parser");
+import bodyParser from 'body-parser';
 import booksRoute from './routes/booksRoute.js';
 import cors from 'cors';
 
