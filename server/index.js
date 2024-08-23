@@ -11,13 +11,13 @@ const app = express();
 app.use(express.json());
 // for Handling CORS Policy
 app.use(cors());
-// app.use(
-//   cors({
-//     origin: 'http://localhost:3000',
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     allowedHeaders: ['Content-Type'],
-//   })
-// );
+app.use(
+  cors({
+    origin: 'https://bookstore-land.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type'],
+  })
+);
 
 app.get('/', (req, res) => {
   return res.status(200).send('Welcome to Book Store');
