@@ -20,20 +20,35 @@ app.use(
   })
 );
 
+if (!mongoDBURL) {
+  console.error("MONGO_URI is not defined. Please check your .env file.");
+  process.exit(1);
+}
+
+mongoose
+  .connect(mongoDBURL)
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.log(err));
+
 app.get('/', (req, res) => {
   return res.status(200).send('Welcome to Book Store');
 });
 
 app.use('/books', booksRoute);
 
-mongoose
-  .connect(mongoDBURL)
-  .then(() => {
-    console.log('App connected to database');
-    app.listen(PORT, () => {
-      console.log(`Server Running at http://localhost:${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// mongoose
+//   .connect(mongoDBURL)
+//   .then(() => {
+//     console.log('App connected to database');
+//     app.listen(PORT, () => {
+//       console.log(`Server Running at http://localhost:${PORT}`);
+//     });
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+//listen port
+app.listen(PORT, () => {
+  console.log(`Server Running at http://localhost:${PORT}`);
+});
