@@ -34,7 +34,12 @@ app.get('/', (req, res) => {
   return res.status(200).send('Welcome to Book Store');
 });
 
-app.use('/books', booksRoute);
+// app.use('/books', booksRoute);
+
+app.use('/books', (req, res, next) => {
+  booksRoute(req, res, next);
+});
+
 
 // mongoose
 //   .connect(mongoDBURL)
