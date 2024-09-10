@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(
   cors({
-    origin: 'https://bookstore-land.vercel.app',
+    // origin: 'https://bookstore-land.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
   })
 );
@@ -34,11 +34,11 @@ app.get('/', (req, res) => {
   return res.status(200).send('Welcome to Book Store');
 });
 
-app.use('/books', booksRoute);
+// app.use('/books', booksRoute);
 // ALTERNATE WAY TO SET UP THE /books ROUTE
-// app.use('/books', (req, res, next) => {
-//   booksRoute(req, res, next);
-// });
+app.use('/books', (req, res, next) => {
+  booksRoute(req, res, next);
+});
 
 
 // mongoose
