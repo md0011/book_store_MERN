@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(
   cors({
-    // origin: 'https://bookstore-land.vercel.app',
+    origin: 'https://bookstore-land.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
   })
 );
@@ -39,19 +39,6 @@ app.get('/', (req, res) => {
 app.use('/books', (req, res, next) => {
   booksRoute(req, res, next);
 });
-
-
-// mongoose
-//   .connect(mongoDBURL)
-//   .then(() => {
-//     console.log('App connected to database');
-//     app.listen(PORT, () => {
-//       console.log(`Server Running at http://localhost:${PORT}`);
-//     });
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
 
 //listen port
 app.listen(PORT, () => {
