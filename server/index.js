@@ -12,7 +12,6 @@ const app = express();
 app.use(bodyParser.json());
 
 // for Handling CORS Policy
-app.use(cors());
 app.use(
   cors({
     origin: 'https://bookstore-land.vercel.app',
